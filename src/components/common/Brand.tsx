@@ -7,7 +7,7 @@ interface BrandProps {
 const Brand = ({ nameColor }: BrandProps) => {
   return (
     <Link to="/" className="brand" aria-label="MokshPath home">
-      <img src="/assets/logogod.svg" alt="" className="brand-mark" />
+      <img src="/assets/chat2.svg" alt="" className="brand-mark" />
       <div>
         <div className="name" style={nameColor ? { color: nameColor } : undefined}>
           MokshPath <span style={{ color: 'var(--saffron)' }}>Academia</span>

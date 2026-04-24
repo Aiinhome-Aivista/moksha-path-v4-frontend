@@ -5,7 +5,7 @@ const Footer = () => {
         <div className="foot-grid">
           <div>
             <div className="brand" style={{ marginBottom: 12 }}>
-              <img src="/assets/logogod.svg" alt="" className="brand-mark" />
+              <img src="/assets/chat2.svg" alt="" className="brand-mark" />
               <div>
                 <div className="name" style={{ color: '#fff' }}>
                   MokshPath <span style={{ color: 'var(--saffron-soft)' }}>Academia</span>

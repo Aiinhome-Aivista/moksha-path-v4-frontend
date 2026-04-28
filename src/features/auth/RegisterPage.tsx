@@ -51,7 +51,7 @@ const RegisterPage = () => {
         enrollmentSize: formData.enrollmentSize,
         primaryBoard: formData.primaryBoard,
       });
-      await authService.requestOtp({
+      await authService.sendOtp({
         method,
         email: method === 'email' ? formData.email : undefined,
         phone: method === 'phone' ? formData.phone : undefined,
@@ -84,7 +84,7 @@ const RegisterPage = () => {
 
   const handleResend = async () => {
     try {
-      await authService.requestOtp({
+      await authService.sendOtp({
         method,
         email: method === 'email' ? formData.email : undefined,
         phone: method === 'phone' ? formData.phone : undefined,

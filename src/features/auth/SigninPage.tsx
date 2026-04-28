@@ -20,7 +20,7 @@ const SigninPage = () => {
     setError(null);
     setSubmitting(true);
     try {
-      await authService.requestOtp({
+      await authService.sendOtp({
         method,
         email: method === 'email' ? email : undefined,
         phone: method === 'phone' ? phone : undefined,

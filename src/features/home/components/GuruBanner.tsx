@@ -4,7 +4,7 @@ const GuruBanner = () => {
       <div className="wrap">
         <div className="guru-hero">
           <div className="guru-hero__img">
-            <img src="/assets/Guru.jpeg" alt="MokshPath guru — AI mentor mascot in meditation" />
+            <img src="/assets/hero.svg" alt="MokshPath guru — AI mentor mascot in meditation" />
           </div>
           <div className="guru-hero__copy">
             <span className="eyebrow" style={{ color: 'var(--saffron-soft)' }}>

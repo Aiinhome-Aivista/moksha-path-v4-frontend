@@ -71,7 +71,7 @@ const HeroSection = () => {
             </div>
 
             <div className="orbit-hero__ring">
-              <Link to="/#tab-student" className="planet p1" aria-label="Students">
+              <a href="/#tab-student" className="planet p1" aria-label="Students">
                 <span className="planet-inner">
                   <span className="planet-ico" aria-hidden="true">
                     <svg
@@ -88,8 +88,8 @@ const HeroSection = () => {
                   </span>
                   <span className="planet-label">Students</span>
                 </span>
-              </Link>
-              <Link to="/#tab-parent" className="planet p2" aria-label="Parents">
+              </a>
+              <a href="/#tab-parent" className="planet p2" aria-label="Parents">
                 <span className="planet-inner">
                   <span className="planet-ico" aria-hidden="true">
                     <svg
@@ -105,8 +105,8 @@ const HeroSection = () => {
                   </span>
                   <span className="planet-label">Parents</span>
                 </span>
-              </Link>
-              <Link to="/#tab-teacher" className="planet p3" aria-label="Teachers">
+              </a>
+              <a href="/#tab-teacher" className="planet p3" aria-label="Teachers">
                 <span className="planet-inner">
                   <span className="planet-ico" aria-hidden="true">
                     <svg
@@ -124,8 +124,8 @@ const HeroSection = () => {
                   </span>
                   <span className="planet-label">Teachers</span>
                 </span>
-              </Link>
-              <Link to="/#tab-institution" className="planet p4" aria-label="Institutions">
+              </a>
+              <a href="/#tab-institution" className="planet p4" aria-label="Institutions">
                 <span className="planet-inner">
                   <span className="planet-ico" aria-hidden="true">
                     <svg
@@ -142,7 +142,7 @@ const HeroSection = () => {
                   </span>
                   <span className="planet-label">Institutions</span>
                 </span>
-              </Link>
+              </a>
             </div>
           </div>
         </div>

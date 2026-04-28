@@ -295,6 +295,11 @@ section { padding: 96px 0; position: relative; }
   gap: 12px;
   flex-wrap: wrap;
 }
+.cta-row {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
 .audience-tabs {
   margin-top: 36px;
   display: flex;

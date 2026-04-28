@@ -1976,10 +1976,12 @@ select.auth-field__input {
   position: relative;
   overflow: hidden;
 }
-.auth-aside__inner { position: relative; z-index: 1; }
+.auth-aside__inner { position: relative; z-index: 1; display: flex;
+align-items: center;
+flex-direction: column; text-align: start; }
 .auth-aside__logo {
-  width: 56px;
-  height: 56px;
+  height: 160px;
+  aspect-ratio: 2;
   margin-bottom: 24px;
   opacity: 0.9;
 }

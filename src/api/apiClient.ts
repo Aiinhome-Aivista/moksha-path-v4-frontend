@@ -2,7 +2,7 @@ import axios, { type AxiosRequestConfig, AxiosError } from "axios";
 
 // Base instance
 const api = axios.create({
-  baseURL: import.meta.env.VITE_MOKSH_PATH_BASE_URL,
+  baseURL: import.meta.env.VITE_API_BASE_URL,
   timeout: 10000,
 });
 

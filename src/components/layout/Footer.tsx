@@ -1,4 +1,8 @@
+import { useNavigate } from 'react-router-dom';
+
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <footer className="site-footer">
       <div className="wrap">
@@ -32,54 +36,37 @@ const Footer = () => {
           <div>
             <h4>Product</h4>
             <ul>
-              <li>
-                <a href="/#personas">Who it's for</a>
-              </li>
-              <li>
-                <a href="/#how">How it works</a>
-              </li>
-              <li>
-                <a href="/#pricing">Subscription</a>
-              </li>
-              <li>
-                <a href="/#proof">Success stories</a>
-              </li>
+              <li><a href="/#personas">Who it's for</a></li>
+              <li><a href="/#how">How it works</a></li>
+              <li><a href="/#pricing">Subscription</a></li>
+              <li><a href="/#proof">Success stories</a></li>
             </ul>
           </div>
 
           <div>
             <h4>For</h4>
             <ul>
-              <li>
-                <a href="/#tab-student">Students</a>
-              </li>
-              <li>
-                <a href="/#tab-parent">Parents</a>
-              </li>
-              <li>
-                <a href="/#tab-teacher">Teachers</a>
-              </li>
-              <li>
-                <a href="/#tab-institution">Institutions</a>
-              </li>
+              <li><a href="/#tab-student">Students</a></li>
+              <li><a href="/#tab-parent">Parents</a></li>
+              <li><a href="/#tab-teacher">Teachers</a></li>
+              <li><a href="/#tab-institution">Institutions</a></li>
             </ul>
           </div>
 
           <div>
             <h4>Company</h4>
             <ul>
+              <li><a href="#">About</a></li>
               <li>
-                <a href="#">About</a>
+                <button
+        
+                  onClick={() => navigate('/blog')}
+                >
+                  Blogs
+                </button>
               </li>
-              <li>
-                <a href="#">Blogs</a>
-              </li>
-              <li>
-                <a href="#">Help center</a>
-              </li>
-              <li>
-                <a href="#">Contact</a>
-              </li>
+              <li><a href="#">Help center</a></li>
+              <li><a href="#">Contact</a></li>
             </ul>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import ApiServices from "../../services/ApiServices";
+import { getPublicBlogs } from "../../services/blogService";
 import { Loader2 } from "lucide-react";
 
 // ==========================================
@@ -39,9 +39,9 @@ export const BlogDetail = () => {
     const fetchBlogData = async () => {
       setIsLoading(true);
       try {
-        const response = await ApiServices.getPublicBlogs();
-        if (response.data.code === 200 || response.data.status === "success") {
-          const allBlogs = response.data.data || [];
+        const response = await getPublicBlogs();
+        if (response?.code === 200 || response?.status === "success") {
+          const allBlogs = response?.data || [];
           const foundBlog = allBlogs.find(
             (b: any) =>
               b.slug.toLowerCase().trim() === slug?.toLowerCase().trim(),

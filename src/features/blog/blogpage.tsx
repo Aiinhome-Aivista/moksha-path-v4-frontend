@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import ApiServices from "../../services/ApiServices";
+import { getPublicBlogs } from "../../services/blogService";
 import { Loader2, BookOpen } from "lucide-react";
 
 export const BlogPage = () => {
@@ -13,9 +13,9 @@ export const BlogPage = () => {
   const fetchPublicBlogs = async () => {
     setIsLoading(true);
     try {
-      const response = await ApiServices.getPublicBlogs();
-      if (response.data.code === 200 || response.data.status === "success") {
-        setAllStudyMaterials(response.data.data || []);
+      const response = await getPublicBlogs();
+      if (response?.code === 200 || response?.status === "success") {
+        setAllStudyMaterials(response?.data || []);
       }
     } catch (error) {
       // console.error("Error fetching public blogs:", error);

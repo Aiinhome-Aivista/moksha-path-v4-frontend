@@ -4,6 +4,9 @@ import SigninPage from '@/features/auth/SigninPage';
 import RegisterPage from '@/features/auth/RegisterPage';
 import DashboardPage from '@/features/dashboard/DashboardPage';
 import NotFoundPage from '@/features/misc/NotFoundPage';
+import { BlogPage } from '@/features/blog/blogpage';
+import BlogDetail from '@/features/blog/blogdetail';
+import LandingLayout from '@/components/layout/LandingLayout';
 import ProtectedRoute from './ProtectedRoute';
 import GuestRoute from './GuestRoute';
 
@@ -36,6 +39,22 @@ const AppRoutes: AppRoute[] = [
       <ProtectedRoute>
         <DashboardPage />
       </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/blog',
+    element: (
+      <LandingLayout>
+        <BlogPage />
+      </LandingLayout>
+    ),
+  },
+  {
+    path: '/blogs/:slug',
+    element: (
+      <LandingLayout>
+        <BlogDetail />
+      </LandingLayout>
     ),
   },
   { path: '*', element: <NotFoundPage /> },

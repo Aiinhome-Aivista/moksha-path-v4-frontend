@@ -1,5 +1,7 @@
-/* Tailwind layers */
-
-
 /* Import the original MokshPath stylesheet (preserves exact design & animations) */
 @import './legacy.css';
+
+/* Tailwind layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -23,10 +23,11 @@ export const authService = {
       data,
     }),
 
-  googleSignIn: (data: { email: string; full_name: string; is_google_verified: boolean }) =>
-    apiRequest({
+  /** Get the Google OAuth redirect URL (no arguments needed). */
+  googleSsoUrl: () =>
+    apiRequest<{ url: string }>({
       url: API_ENDPOINTS.GOOGLE_SIGNIN,
-      method: "POST",
-      data,
+      method: "GET",
     }),
+
 };

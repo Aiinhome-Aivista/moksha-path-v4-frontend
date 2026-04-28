@@ -3,7 +3,7 @@ const AuthAsideCard = () => {
     <aside className="auth-aside">
       <div className="auth-aside__inner">
         <img
-          src="/assets/hero.svg"
+          src="/assets/logogod.svg"
           alt=""
           className="auth-aside__logo"
           aria-hidden="true"

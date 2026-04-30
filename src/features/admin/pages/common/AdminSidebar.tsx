@@ -39,7 +39,6 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, toggleSideba
                     const mappedMenus = userObj.menus.map((item: any) => ({
                         page_id: item.page_id,
                         page_name: item.page_name,
-                        icon: getIconForPage(item.page_name),
                         route: `/admin${item.page_route}`
                     }));
                     setMenuItems(mappedMenus);
@@ -49,25 +48,21 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, toggleSideba
                         {
                             page_id: 'dashboard',
                             page_name: 'Dashboard',
-                            icon: getIconForPage('dashboard'),
                             route: '/admin/dashboard'
                         },
                         {
                             page_id: 'categories',
                             page_name: 'Categories',
-                            icon: getIconForPage('categories'),
-                            route: '/admin/manage-category'
+                            route: '/admin/manage-categories'
                         },
                         {
                             page_id: 'blogs',
                             page_name: 'Blogs',
-                            icon: getIconForPage('blog'),
                             route: '/admin/manage-blog'
                         },
                         {
                             page_id: 'seo',
                             page_name: 'SEO Config',
-                            icon: getIconForPage('seo'),
                             route: '/admin/manage-seo'
                         }
                     ]);
@@ -91,15 +86,12 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, toggleSideba
 
     return (
         <aside
-            // onMouseLeave={() => {
-            //     if (isOpen) toggleSidebar();
-            // }}
             className={`
                 fixed top-0 left-0 h-full z-[100]
                 bg-white dark:bg-secondary-900
                 shadow-xl transition-all duration-500 ease-in-out
                 flex flex-col rounded-r-[30px]
-                ${isOpen ? "w-[360px]" : "w-0 md:w-[88px]"}
+                ${isOpen ? "w-64" : "w-0 md:w-[88px]"}
             `}
             style={{
                 transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
@@ -144,9 +136,9 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, toggleSideba
                 <div className={`text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4 px-3 ${!isOpen && "text-center opacity-0 hidden"}`}>
                     Core Modules
                 </div>
-                <ul className="space-y-1">
+                <ul className="space-y-1 list-none m-0 p-0">
                     {menuItems.map((item) => (
-                        <li key={item.page_id}>
+                        <li key={item.page_id} className="m-0 p-0">
                             <NavLink
                                 to={item.route}
                                 draggable={false}
@@ -170,7 +162,9 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, toggleSideba
                                 title={!isOpen ? item.page_name : undefined}
                             >
                                 <div className={`flex items-center ${isOpen ? "gap-3" : ""}`}>
-                                    <span>{item.icon}</span>
+                                    <span className="flex-shrink-0 flex items-center justify-center w-6 h-6">
+                                        {getIconForPage(item.page_name)}
+                                    </span>
                                     {isOpen && (
                                         <span
                                             className="text-[15px] font-medium whitespace-nowrap transition-opacity duration-300"

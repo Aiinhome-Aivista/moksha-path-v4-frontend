@@ -81,7 +81,7 @@ const AppRoutes: AppRoute[] = [
     ),
   },
   {
-    path: '/admin/manage-category',
+    path: '/admin/manage-categories',
     element: (
       <AdminLayout>
         <ManageCategory />

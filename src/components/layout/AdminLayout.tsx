@@ -21,17 +21,13 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
 
       {/* Main Content Area */}
       <div 
-        className={`flex-1 flex flex-col min-w-0 transition-all duration-500 ${isSidebarOpen ? 'ml-[360px]' : 'ml-0 md:ml-[88px]'}`}
+        className={`flex-1 flex flex-col min-w-0 transition-all duration-500 ${isSidebarOpen ? 'ml-64' : 'ml-0 md:ml-[88px]'}`}
       >
-        <Header variant="landing" />
-        
         <main className="flex-1 p-6">
-          <div className="max-w-7xl mx-auto w-full">
+          <div className="max-w-7xl mx-auto w-full mt-4">
             {children}
           </div>
         </main>
-        
-        <Footer />
       </div>
     </div>
   );

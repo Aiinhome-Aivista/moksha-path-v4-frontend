@@ -53,7 +53,7 @@ export const BlogPage = () => {
   const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   return (
-    <div className="bg-gray-50 font-sans min-h-screen w-full">
+    <div className="font-sans min-h-screen w-full">
       {/* Invisible div acting as our scroll anchor */}
       <div ref={topRef} className="h-0 w-0" />
 
@@ -120,7 +120,7 @@ export const BlogPage = () => {
                     {/* Link pinned to bottom */}
                     <Link
                       to={`/blogs/${post.slug}`}
-                      className="w-full py-2.5 bg-[#FCEA0A] hover:bg-yellow-400 text-black font-medium text-sm rounded transition-colors mt-auto text-center block shadow-sm"
+                      className="btn btn-blog w-full py-2.5 bg-[#FCEA0A] hover:bg-yellow-400 text-black font-medium text-sm rounded transition-colors mt-auto text-center block shadow-sm"
                     >
                       Read More
                     </Link>
@@ -179,7 +179,7 @@ export const BlogPage = () => {
             <button
               onClick={goToNextPage}
               disabled={currentPage === totalPages}
-              className="px-3 md:px-4 py-2 bg-[#FCEA0A] text-black font-medium rounded shadow-sm hover:bg-yellow-400 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="btn btn-primary text-black disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               Next
             </button>
@@ -187,7 +187,7 @@ export const BlogPage = () => {
             <button
               onClick={goToLastPage}
               disabled={currentPage === totalPages}
-              className="px-3 md:px-4 py-2 bg-[#FCEA0A] text-black font-medium rounded shadow-sm hover:bg-yellow-400 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="btn btn-primary text-black disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               Last
             </button>

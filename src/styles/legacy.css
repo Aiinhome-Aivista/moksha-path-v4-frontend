@@ -249,6 +249,13 @@ section { padding: 96px 0; position: relative; }
 }
 .btn-dark:hover { background: #151c38; }
 
+.btn-blog{
+  background: var(--saffron);
+  color: var(--ink);
+  box-shadow: 0 8px 18px var(--saffron-soft);}
+.btn-blog:hover{
+  background: var(--gold);
+}
 /* ---------- Hero ---------- */
 .hero {
   position: relative;

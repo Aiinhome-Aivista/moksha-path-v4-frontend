@@ -4,8 +4,9 @@ import { useToast } from '../../../../app/providers/ToastProvider';
 import { Key, User, Shield, RefreshCw } from 'lucide-react';
 import Header from '../../../../components/layout/Header';
 import Footer from '../../../../components/layout/Footer';
-import LandingPage from '../../../landingpage/pages/LandingPage';
-import ApiServices from '../../../../services/ApiServices';
+// import LandingPage from '../../../landingpage/pages/LandingPage';
+import { blogAdminLogin } from '../../../../services/blogService';
+import HomePage from '@/features/home/HomePage';
 
 const AdminLogin: React.FC = () => {
     const [username, setUsername] = useState('');
@@ -41,12 +42,12 @@ const AdminLogin: React.FC = () => {
         }
 
         try {
-            const response = await ApiServices.blogAdminLogin({ username, password });
+            const response = await blogAdminLogin({ username, password });
 
-            if (response?.data?.status === 'success') {
-                showToast(response?.data?.message || 'Login Successful', 'success');
+            if (response?.status === 'success') {
+                showToast(response?.message || 'Login Successful', 'success');
 
-                const userObj = response?.data?.data || {};
+                const userObj = response?.data || {};
 
                 if (userObj) {
                     localStorage.setItem('admin_user', JSON.stringify(userObj)); 
@@ -57,7 +58,7 @@ const AdminLogin: React.FC = () => {
                     }, 1000);
                 }
             } else {
-                showToast(response.data.message || 'Invalid credentials.', 'error');
+                showToast(response?.message || 'Invalid credentials.', 'error');
                 handleResetCaptcha();
             }
         } catch (error: any) {
@@ -75,9 +76,10 @@ const AdminLogin: React.FC = () => {
             <div className="absolute inset-0 filter blur-md brightness-75" style={{ transform: 'scale(1.05)' }}>
                 <div className="h-full w-full overflow-hidden flex flex-col">
                     {/* We render the public layout structure here */}
-                    <Header isSidebarOpen={false} />
+                    <Header />
                     <main className="flex-1">
-                        <LandingPage />
+                        {/* <LandingPage /> */}
+                        <HomePage />
                     </main>
                     <Footer />
                 </div>

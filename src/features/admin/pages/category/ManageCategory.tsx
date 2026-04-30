@@ -10,7 +10,7 @@ import {
   RefreshCw,
 } from "lucide-react";
 import AddCategory from "./AddCategory";
-import ApiServices from "../../../../services/ApiServices";
+import { getBlogCategories, deleteBlogCategory } from "../../../../services/blogService";
 import { useToast } from "../../../../app/providers/ToastProvider";
 
 // ==========================================
@@ -54,9 +54,9 @@ export const ManageCategories: React.FC = () => {
   const loadInitialData = async () => {
     setIsTableLoading(true);
     try {
-      const response = await ApiServices.getBlogCategories();
-      if (response.data.code === 200 || response.data.status === "success") {
-        setAllCategories(response.data.data || []);
+      const response = await getBlogCategories();
+      if (response.code === 200 || response.status === "success") {
+        setAllCategories(response.data || []);
       }
     } catch (error) {
       console.error("Error loading categories:", error);
@@ -71,9 +71,9 @@ export const ManageCategories: React.FC = () => {
     if (isTableLoading || isRefreshing) return; // Block if already busy
     setIsRefreshing(true);
     try {
-      const response = await ApiServices.getBlogCategories();
-      if (response.data.code === 200 || response.data.status === "success") {
-        setAllCategories(response.data.data || []);
+      const response = await getBlogCategories();
+      if (response.code === 200 || response.status === "success") {
+        setAllCategories(response.data || []);
         // showToast("Categories refreshed", "success");
       } else {
         showToast("Failed to refresh categories", "error");
@@ -131,12 +131,12 @@ export const ManageCategories: React.FC = () => {
 
     setIsDeleting(true);
     try {
-      const response = await ApiServices.deleteBlogCategory({
+      const response = await deleteBlogCategory({
         id: categoryToDelete,
       });
-      if (response.data.code === 200 || response.data.status === "success") {
+      if (response.code === 200 || response.status === "success") {
         showToast(
-          response.data.message || "Category deleted successfully",
+          response.message || "Category deleted successfully",
           "success",
         );
         setShowDeleteModal(false);
@@ -144,7 +144,7 @@ export const ManageCategories: React.FC = () => {
         loadInitialData(); // Refetch data after delete
       } else {
         showToast(
-          response.data.message || "Failed to delete category",
+          response.message || "Failed to delete category",
           "error",
         );
       }

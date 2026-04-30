@@ -10,7 +10,7 @@ import {
   AlertTriangle,
   RefreshCw,
 } from "lucide-react";
-import ApiServices from "../../../../services/ApiServices";
+import { getAdminBlogs, deleteBlog } from "../../../../services/blogService";
 import { useToast } from "../../../../app/providers/ToastProvider";
 
 // ==========================================
@@ -70,9 +70,9 @@ export const ManageBlog: React.FC = () => {
   const loadInitialData = async () => {
     setIsTableLoading(true);
     try {
-      const response = await ApiServices.getBlogsList();
-      if (response.data.code === 200 || response.data.status === "success") {
-        setBlogs(response.data.data || []);
+      const response = await getAdminBlogs();
+      if (response.code === 200 || response.status === "success") {
+        setBlogs(response.data || []);
       }
     } catch (error) {
       console.error("Error loading blogs:", error);
@@ -87,9 +87,9 @@ export const ManageBlog: React.FC = () => {
     if (isTableLoading || isRefreshing) return; // Block if already busy
     setIsRefreshing(true);
     try {
-      const response = await ApiServices.getBlogsList();
-      if (response.data.code === 200 || response.data.status === "success") {
-        setBlogs(response.data.data || []);
+      const response = await getAdminBlogs();
+      if (response.code === 200 || response.status === "success") {
+        setBlogs(response.data || []);
         // showToast("Blogs refreshed", "success");
       } else {
         showToast("Failed to refresh blogs", "error");
@@ -139,17 +139,17 @@ export const ManageBlog: React.FC = () => {
 
     setIsDeleting(true);
     try {
-      const response = await ApiServices.deleteBlog({ id: blogToDelete });
-      if (response.data.code === 200 || response.data.status === "success") {
+      const response = await deleteBlog({ id: blogToDelete });
+      if (response.code === 200 || response.status === "success") {
         showToast(
-          response.data.message || "Blog deleted successfully",
+          response.message || "Blog deleted successfully",
           "success",
         );
         setShowDeleteModal(false);
         setBlogToDelete(null);
         loadInitialData(); // Refetch data after delete
       } else {
-        showToast(response.data.message || "Failed to delete blog", "error");
+        showToast(response.message || "Failed to delete blog", "error");
       }
     } catch (error) {
       console.error("Error deleting blog:", error);

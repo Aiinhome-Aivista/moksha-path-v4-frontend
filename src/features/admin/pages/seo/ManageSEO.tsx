@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ListPlus, Search, Edit, Trash2,Loader2, AlertTriangle, RefreshCw } from 'lucide-react';
-import ApiServices from '../../../../services/ApiServices';
+import { getBlogSeoSettings, deleteBlogSeo } from '../../../../services/blogService';
 import { useToast } from '../../../../app/providers/ToastProvider';
 
 // ==========================================
@@ -58,9 +58,9 @@ export const ManageSEO: React.FC = () => {
     const loadInitialData = async () => {
         setIsTableLoading(true);
         try {
-            const response = await ApiServices.getBlogSeoSettings();
-            if (response.data.code === 200 || response.data.status === 'success') {
-                setAllSeoData(response.data.data || []);
+            const response = await getBlogSeoSettings();
+            if (response.code === 200 || response.status === 'success') {
+                setAllSeoData(response.data || []);
             }
         } catch (error) {
             console.error("Error loading SEO data:", error);
@@ -75,9 +75,9 @@ export const ManageSEO: React.FC = () => {
         if (isTableLoading || isRefreshing) return; // Block if already busy
         setIsRefreshing(true);
         try {
-            const response = await ApiServices.getBlogSeoSettings();
-            if (response.data.code === 200 || response.data.status === 'success') {
-                setAllSeoData(response.data.data || []);
+            const response = await getBlogSeoSettings();
+            if (response.code === 200 || response.status === 'success') {
+                setAllSeoData(response.data || []);
                 showToast("Data refreshed", "success");
             } else {
                 showToast("Failed to refresh data", "error");
@@ -115,9 +115,9 @@ export const ManageSEO: React.FC = () => {
 
         setIsDeleting(true);
         try {
-            const response = await ApiServices.deleteBlogSeo({ id: seoToDelete });
-            if (response.data.code === 200 || response.data.status === 'success') {
-                showToast(response.data.message || "SEO configuration deleted", "success");
+            const response = await deleteBlogSeo({ id: seoToDelete });
+            if (response.code === 200 || response.status === 'success') {
+                showToast(response.message || "SEO configuration deleted", "success");
                 setShowDeleteModal(false);
                 setSeoToDelete(null);
                 loadInitialData(); // Refetch data after delete

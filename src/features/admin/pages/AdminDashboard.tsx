@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { LayoutDashboard, FileText, Activity, Layers, Loader2 } from 'lucide-react';
-import ApiServices from '../../../services/ApiServices';
+import { getAdminDashboard } from '../../../services/blogService';
 
 export const AdminDashboard: React.FC = () => {
     const [adminName, setAdminName] = useState('Admin');
@@ -28,10 +28,10 @@ const formatDate = (dateString: string | undefined | null): string => {
     const fetchDashboardData = async () => {
         setIsLoading(true);
         try {
-            const response = await ApiServices.getBlogAdminDashboard();
+            const response = await getAdminDashboard();
             console.log("Dashboard Raw Response:", response);
 
-            const respData = response.data;
+            const respData = response;
 
             // Case 1: Wrapped response { code: 200, data: { ... }, status: "success" }
             if (respData && (respData.code === 200 || respData.status === 'success') && respData.data) {

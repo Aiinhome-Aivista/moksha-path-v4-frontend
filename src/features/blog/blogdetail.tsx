@@ -230,7 +230,7 @@ export const BlogDetail = () => {
                   {prevBlog && (
                     <Link to={`/blogs/${prevBlog.slug}`} className="block group">
                       <span className="block text-xs text-gray-400 mb-2">Previous Post</span>
-                      <span className="block text-[14px] font-medium text-[#b0cb1f] group-hover:opacity-80 transition-opacity">
+                      <span className="block text-[14px] font-medium text-[#d4a017] group-hover:opacity-80 transition-opacity">
                         {prevBlog.title}
                       </span>
                     </Link>
@@ -240,7 +240,7 @@ export const BlogDetail = () => {
                   {nextBlog && (
                     <Link to={`/blogs/${nextBlog.slug}`} className="block group">
                       <span className="block text-xs text-gray-400 mb-2">Next Post</span>
-                      <span className="block text-[14px] font-medium text-[#b0cb1f] group-hover:opacity-80 transition-opacity">
+                      <span className="block text-[14px] font-medium text-[#d4a017] group-hover:opacity-80 transition-opacity">
                         {nextBlog.title}
                       </span>
                     </Link>
@@ -257,7 +257,7 @@ export const BlogDetail = () => {
                       <span className="block text-xs text-gray-400 mb-2">
                         Previous Post
                       </span>
-                      <span className="block text-[14px] font-medium text-[#b0cb1f] group-hover:opacity-80 transition-opacity">
+                      <span className="block text-[14px] font-medium text-[#d4a017] group-hover:opacity-80 transition-opacity">
                         {nextBlog.title}
                       </span>
                     </Link>
@@ -272,7 +272,7 @@ export const BlogDetail = () => {
                       <span className="block text-xs text-gray-400 mb-2">
                         Next Post
                       </span>
-                      <span className="block text-[14px] font-medium text-[#b0cb1f] group-hover:opacity-80 transition-opacity">
+                      <span className="block text-[14px] font-medium text-[#d4a017] group-hover:opacity-80 transition-opacity">
                         {prevBlog.title}
                       </span>
                     </Link>
@@ -286,7 +286,7 @@ export const BlogDetail = () => {
           <div className="w-full lg:w-[35%] xl:w-[30%] flex flex-col space-y-8">
             {/* LATEST ARTICLES WIDGET */}
             <div className="bg-gray-50 p-6 border border-gray-100 rounded-lg">
-              <div className="inline-block bg-[#ffed00] text-black font-bold text-[13px] px-3 py-1.5 uppercase tracking-wide mb-6">
+              <div className="btn-blog uppercase tracking-wide mb-6">
                 LATEST ARTICLES
               </div>
 
@@ -325,7 +325,7 @@ export const BlogDetail = () => {
 
             {/* RELATED ARTICLES WIDGET */}
             <div className="bg-gray-50 p-6 border border-gray-100 rounded-lg">
-              <div className="inline-block bg-[#ffed00] text-black font-bold text-[13px] px-3 py-1.5 uppercase tracking-wide mb-6">
+              <div className="btn-blog uppercase tracking-wide mb-6">
                 RELATED ARTICLES
               </div>
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Save, X, Loader2 } from 'lucide-react';
-import ApiServices from '../../../../services/ApiServices';
+import { insertUpdateBlogCategory } from "../../../../services/blogService";
 import { useToast } from '../../../../app/providers/ToastProvider';
 
 interface AddCategoryProps {
@@ -52,14 +52,14 @@ export const AddCategory: React.FC<AddCategoryProps> = ({
                 category_name: categoryName.trim()
             };
             
-            const response = await ApiServices.insertUpdateBlogCategory(payload);
+            const response = await insertUpdateBlogCategory(payload);
             
-            if (response.data.code === 200 || response.data.status === 'success') {
-                showToast(response.data.message || `Category ${isEditMode ? 'updated' : 'added'} successfully`, 'success');
+            if (response.code === 200 || response.status === 'success') {
+                showToast(response.message || `Category ${isEditMode ? 'updated' : 'added'} successfully`, 'success');
                 if (onSuccess) onSuccess();
                 onClose();
             } else {
-                showToast(response.data.message || 'Failed to save category', 'error');
+                showToast(response.message || 'Failed to save category', 'error');
             }
         } catch (error: any) {
             console.error('Error saving category:', error);

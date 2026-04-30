@@ -10,7 +10,7 @@ import {
   AlertTriangle,
   RefreshCw,
 } from "lucide-react";
-import ApiServices from "../../../../services/ApiServices";
+import { getAdminBlogs, deleteBlog } from "../../../../services/blogService";
 import { useToast } from "../../../../app/providers/ToastProvider";
 
 // ==========================================
@@ -70,9 +70,9 @@ export const ManageBlog: React.FC = () => {
   const loadInitialData = async () => {
     setIsTableLoading(true);
     try {
-      const response = await ApiServices.getBlogsList();
-      if (response.data.code === 200 || response.data.status === "success") {
-        setBlogs(response.data.data || []);
+      const response = await getAdminBlogs();
+      if (response.code === 200 || response.status === "success") {
+        setBlogs(response.data || []);
       }
     } catch (error) {
       console.error("Error loading blogs:", error);
@@ -87,9 +87,9 @@ export const ManageBlog: React.FC = () => {
     if (isTableLoading || isRefreshing) return; // Block if already busy
     setIsRefreshing(true);
     try {
-      const response = await ApiServices.getBlogsList();
-      if (response.data.code === 200 || response.data.status === "success") {
-        setBlogs(response.data.data || []);
+      const response = await getAdminBlogs();
+      if (response.code === 200 || response.status === "success") {
+        setBlogs(response.data || []);
         // showToast("Blogs refreshed", "success");
       } else {
         showToast("Failed to refresh blogs", "error");
@@ -139,17 +139,17 @@ export const ManageBlog: React.FC = () => {
 
     setIsDeleting(true);
     try {
-      const response = await ApiServices.deleteBlog({ id: blogToDelete });
-      if (response.data.code === 200 || response.data.status === "success") {
+      const response = await deleteBlog({ id: blogToDelete });
+      if (response.code === 200 || response.status === "success") {
         showToast(
-          response.data.message || "Blog deleted successfully",
+          response.message || "Blog deleted successfully",
           "success",
         );
         setShowDeleteModal(false);
         setBlogToDelete(null);
         loadInitialData(); // Refetch data after delete
       } else {
-        showToast(response.data.message || "Failed to delete blog", "error");
+        showToast(response.message || "Failed to delete blog", "error");
       }
     } catch (error) {
       console.error("Error deleting blog:", error);
@@ -164,7 +164,7 @@ export const ManageBlog: React.FC = () => {
       {/* Header Section */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-primary dark:text-white flex items-center gap-3">
+          <h1 className="text-2xl font-bold text-primary dark:text-secondary-300 flex items-center gap-3">
             <FileText className="text-[#b0cb1f]" />
             Manage Blogs
           </h1>
@@ -174,7 +174,7 @@ export const ManageBlog: React.FC = () => {
         </div>
         <NavLink
           to="/admin/add-blog"
-          className="flex items-center gap-2 bg-[#b0cb1f] hover:bg-[#c5de3a] text-gray-900 px-5 py-2.5 rounded-xl font-semibold transition-colors shadow-md"
+          className="btn btn-primary text-gray-900 transition-colors"
         >
           <FilePlus2 size={18} />
           Create New Blog
@@ -214,7 +214,7 @@ export const ManageBlog: React.FC = () => {
         <div className="w-full">
           <table className="w-full text-sm text-left table-fixed">
             {/* GREEN Table Header */}
-            <thead className="bg-[#b0cb1f] text-gray-900 font-semibold border-b border-gray-200 dark:border-secondary-700">
+            <thead className="bg-[#e76f20]/80 text-gray-900 font-semibold border-b border-gray-200 dark:border-secondary-700">
               <tr className="divide-x divide-gray-900/20">
                 <th className="px-6 py-4 text-center">Sl. No.</th>
                 <th className="px-6 py-4 text-center">Title</th>
@@ -263,17 +263,17 @@ export const ManageBlog: React.FC = () => {
                     key={blog.id}
                     className="divide-x divide-gray-100 dark:divide-secondary-700 hover:bg-gray-50 dark:hover:bg-secondary-700/50 transition-colors"
                   >
-                    <td className="px-6 py-4 text-center text-primary dark:text-gray-300">
+                    <td className="px-6 py-4 text-center text-primary dark:text-secondary-300">
                       {startIndex + index + 1}
                     </td>
                     <td
-                      className="px-6 py-4 text-center font-medium text-primary dark:text-gray-200 max-w-xs truncate cursor-pointer"
+                      className="px-6 py-4 text-center font-medium text-primary dark:text-secondary-200 max-w-xs truncate cursor-pointer"
                       title={blog.blog_title || blog.title}
                     >
                       {blog.blog_title || blog.title}
                     </td>
                     <td
-                      className="px-6 py-4 text-center text-primary dark:text-gray-400 text-sm max-w-xs truncate cursor-pointer"
+                      className="px-6 py-4 text-center text-primary dark:text-secondary-400 text-sm max-w-xs truncate cursor-pointer"
                       title={
                         blog.blog_content?.replace(/<[^>]*>?/gm, "") ||
                         blog.excerpt ||
@@ -286,10 +286,10 @@ export const ManageBlog: React.FC = () => {
                         blog.excerpt ||
                         "No content"}
                     </td>
-                    <td className="px-6 py-4 text-center text-primary dark:text-gray-300">
+                    <td className="px-6 py-4 text-center text-primary dark:text-secondary-300">
                       {blog.category_name || blog.category}
                     </td>
-                    <td className="px-6 py-4 text-center text-primary dark:text-gray-300">
+                    <td className="px-6 py-4 text-center text-primary dark:text-secondary-300">
                       {blog.blog_author}
                     </td>
                     <td className="px-6 py-4 text-center">
@@ -308,7 +308,7 @@ export const ManageBlog: React.FC = () => {
                         )}
                       </div>
                     </td>
-                    <td className="px-6 py-4 text-center text-primary dark:text-gray-300">
+                    <td className="px-6 py-4 text-center text-primary dark:text-secondary-300">
                       {formatDate(blog.created_at || blog.publishDate)}
                     </td>
                     <td className="px-6 py-4 text-center">

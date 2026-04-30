@@ -63,7 +63,7 @@ export const BlogPage = () => {
         <div className="flex justify-center min-h-[400px]">
           {isLoading ? (
             <div className="flex flex-col items-center justify-center py-20">
-              <Loader2 className="animate-spin text-[#FCEA0A] mb-4" size={50} />
+              <Loader2 className="animate-spin text-[#f6b93b] mb-4" size={50} />
               <p className="text-gray-500 font-medium">
                 Fetching latest blogs...
               </p>
@@ -73,10 +73,10 @@ export const BlogPage = () => {
               {currentPosts.map((post) => (
                 <div
                   key={post.id}
-                  className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                  className="bg-white rounded-md shadow-sm border border-gray-100 overflow-hidden flex flex-col transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
                 >
                   {/* Card Image */}
-                  <div className="h-52 bg-gray-200 overflow-hidden p-3 rounded-t-xl">
+                  <div className="h-52 bg-gray-200 overflow-hidden p-3 rounded-t-md">
                     <div className="w-full h-full rounded-lg overflow-hidden relative">
                       <img
                         src={encodeURI(post.image)}
@@ -120,7 +120,7 @@ export const BlogPage = () => {
                     {/* Link pinned to bottom */}
                     <Link
                       to={`/blogs/${post.slug}`}
-                      className="btn btn-blog w-full py-2.5 bg-[#FCEA0A] hover:bg-yellow-400 text-black font-medium text-sm rounded transition-colors mt-auto text-center block shadow-sm"
+                      className="btn-blog transition-colors"
                     >
                       Read More
                     </Link>
@@ -166,9 +166,9 @@ export const BlogPage = () => {
               <button
                 key={number}
                 onClick={() => goToPage(number)}
-                className={`px-3 md:px-4 py-2 font-medium rounded shadow-sm transition-all duration-200 ${
+                className={`btn-blog transition-all duration-200 ${
                   currentPage === number
-                    ? "bg-[#FCEA0A] text-black"
+                    ? ""
                     : "bg-white border border-gray-200 text-gray-600 hover:bg-[#fef08a]"
                 }`}
               >
@@ -179,7 +179,7 @@ export const BlogPage = () => {
             <button
               onClick={goToNextPage}
               disabled={currentPage === totalPages}
-              className="btn btn-primary text-black disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="btn-blog disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               Next
             </button>
@@ -187,7 +187,7 @@ export const BlogPage = () => {
             <button
               onClick={goToLastPage}
               disabled={currentPage === totalPages}
-              className="btn btn-primary text-black disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="btn-blog disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               Last
             </button>

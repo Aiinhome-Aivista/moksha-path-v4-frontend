@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Save, Loader2, AlertCircle } from 'lucide-react';
 import { NavLink, useSearchParams, useNavigate } from 'react-router-dom';
-import ApiServices from '../../../../services/ApiServices';
+import { getBlogSeoSettings, insertUpdateBlogSeo } from '../../../../services/blogService';
 import { useToast } from '../../../../app/providers/ToastProvider';
 
 export const AddSEO: React.FC = () => {
@@ -24,9 +24,9 @@ export const AddSEO: React.FC = () => {
         const fetchExistingData = async () => {
             if (isEditMode && editId) {
                 try {
-                    const response = await ApiServices.getBlogSeoSettings();
-                    if (response.data.code === 200 || response.data.status === 'success') {
-                        const seoToEdit = response.data.data.find((s: any) => s.id.toString() === editId);
+                    const response = await getBlogSeoSettings();
+                    if (response.code === 200 || response.status === 'success') {
+                        const seoToEdit = response.data.find((s: any) => s.id.toString() === editId);
                         if (seoToEdit) {
                             setRoutePath(seoToEdit.page_route || '');
                             setMetaTitle(seoToEdit.seo_title || '');
@@ -77,13 +77,13 @@ export const AddSEO: React.FC = () => {
                 canonical_url: canonicalUrl
             };
 
-            const response = await ApiServices.insertUpdateBlogSeo(payload);
+            const response = await insertUpdateBlogSeo(payload);
             
-            if (response.data.code === 200 || response.data.status === 'success') {
-                showToast(response.data.message || `SEO ${isEditMode ? 'updated' : 'added'} successfully`, 'success');
+            if (response.code === 200 || response.status === 'success') {
+                showToast(response.message || `SEO ${isEditMode ? 'updated' : 'added'} successfully`, 'success');
                 navigate('/admin/manage-seo');
             } else {
-                showToast(response.data.message || 'Failed to save SEO config', 'error');
+                showToast(response.message || 'Failed to save SEO config', 'error');
             }
         } catch (error) {
             console.error('Error saving SEO:', error);

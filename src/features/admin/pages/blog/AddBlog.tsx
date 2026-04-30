@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ArrowLeft, Save, Image as ImageIcon, X, Loader2 } from "lucide-react";
 import { NavLink, useSearchParams, useNavigate } from "react-router-dom";
-import ApiServices from "../../../../services/ApiServices";
+import { getBlogCategories, getBlogAuthorDropdown, getAdminBlogs, insertUpdateBlog } from "../../../../services/blogService";
 import { useToast } from "../../../../app/providers/ToastProvider";
 import TiptapEditor from "./TitapEditor";
 
@@ -27,9 +27,9 @@ export const AddBlog: React.FC = () => {
     // Fetch Categories
     const fetchCategories = async () => {
       try {
-        const response = await ApiServices.getBlogCategories();
-        if (response.data.code === 200 || response.data.status === "success") {
-          setAvailableCategories(response.data.data || []);
+        const response = await getBlogCategories();
+        if (response.code === 200 || response.status === "success") {
+          setAvailableCategories(response.data || []);
         }
       } catch (error) {
         console.error("Error fetching categories:", error);
@@ -39,9 +39,9 @@ export const AddBlog: React.FC = () => {
     // Fetch Authors
     const fetchAuthors = async () => {
       try {
-        const response = await ApiServices.getBlogAuthorDropdown();
-        if (response.data.code === 200 || response.data.status === "success") {
-          setAvailableAuthors(response.data.data || []);
+        const response = await getBlogAuthorDropdown();
+        if (response.code === 200 || response.status === "success") {
+          setAvailableAuthors(response.data || []);
         }
       } catch (error) {
         console.error("Error fetching authors:", error);
@@ -52,12 +52,12 @@ export const AddBlog: React.FC = () => {
     const fetchBlogData = async () => {
       if (isEditMode && editId) {
         try {
-          const response = await ApiServices.getBlogsList();
+          const response = await getAdminBlogs();
           if (
-            response.data.code === 200 ||
-            response.data.status === "success"
+            response.code === 200 ||
+            response.status === "success"
           ) {
-            const blogToEdit = response.data.data.find(
+            const blogToEdit = response.data.find(
               (b: any) => b.id.toString() === editId,
             );
             if (blogToEdit) {
@@ -119,17 +119,17 @@ export const AddBlog: React.FC = () => {
         formData.append("image", imageFile);
       }
 
-      const response = await ApiServices.insertUpdateBlog(formData);
+      const response = await insertUpdateBlog(formData);
 
-      if (response.data.code === 200 || response.data.status === "success") {
+      if (response.code === 200 || response.status === "success") {
         showToast(
-          response.data.message ||
+          response.message ||
             `Blog ${isEditMode ? "updated" : "published"} successfully`,
           "success",
         );
         navigate("/admin/manage-blog");
       } else {
-        showToast(response.data.message || "Failed to save blog", "error");
+        showToast(response.message || "Failed to save blog", "error");
       }
     } catch (error: any) {
       console.error("Error saving blog:", error);
@@ -151,7 +151,7 @@ export const AddBlog: React.FC = () => {
           <ArrowLeft size={20} />
         </NavLink>
         <div>
-          <h1 className="text-2xl font-bold text-primary dark:text-white">
+          <h1 className="text-2xl font-bold text-primary dark:text-secondary-300 flex items-center gap-3">
             {isEditMode ? "Edit Blog Article" : "Add New Blog Article"}
           </h1>
         </div>
@@ -337,7 +337,7 @@ export const AddBlog: React.FC = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="flex items-center gap-2 bg-[#b0cb1f] text-gray-900 px-8 py-3 rounded-xl font-bold shadow-lg hover:bg-[#c5de3a] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="btn btn-primary text-gray-900  transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 <>

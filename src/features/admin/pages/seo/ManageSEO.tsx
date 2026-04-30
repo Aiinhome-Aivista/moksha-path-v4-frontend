@@ -165,7 +165,7 @@ export const ManageSEO: React.FC = () => {
             </div>
 
             {/* Table Card Container */}
-            <div className="bg-white dark:bg-secondary-800 rounded-xl shadow-sm border border-secondary-200 dark:border-secondary-700 overflow-hidden">
+            <div className="bg-white dark:bg-secondary-800 rounded-md shadow-sm border border-secondary-200 dark:border-secondary-700 overflow-hidden">
                 
                 {/* Search Bar Top Bar */}
                 <div className="p-4 border-b border-secondary-200 dark:border-secondary-700 bg-white dark:bg-secondary-800/50 flex items-center justify-between gap-4">
@@ -174,7 +174,7 @@ export const ManageSEO: React.FC = () => {
                         <input
                             type="text"
                             placeholder="Search anything..."
-                            className="pl-10 pr-4 py-2 border border-gray-200 dark:border-secondary-600 rounded-md w-full text-primary dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#b0cb1f]/50 transition-shadow text-black dark:text-white disabled:opacity-70 disabled:cursor-not-allowed"
+                            className="pl-10 pr-4 py-2 border rounded-md w-full text-primary dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#e76f20]/50 transition-shadow text-black disabled:opacity-70 disabled:cursor-not-allowed"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             disabled={isTableLoading || isRefreshing}
@@ -183,7 +183,7 @@ export const ManageSEO: React.FC = () => {
                     <button
                         onClick={handleManualRefresh}
                         disabled={isTableLoading || isRefreshing}
-                        className="p-2 rounded-full hover:bg-secondary-100 dark:hover:bg-secondary-700 text-secondary-500 dark:text-secondary-400 transition-colors disabled:opacity-50 disabled:cursor-wait"
+                        className="btn btn-ghost p-2 hover:opacity-90 disabled:opacity-50 disabled:cursor-wait"
                         title="Refresh"
                     >
                         {isRefreshing ? (
@@ -264,13 +264,13 @@ export const ManageSEO: React.FC = () => {
                                                 <NavLink to={`/admin/add-seo?edit=${seo.id}`} className="text-amber-500 hover:text-amber-600 transition-colors" title="Edit">
                                                     <Edit size={18} />
                                                 </NavLink>
-                                                <button 
+                                                <a 
                                                     onClick={() => handleDeleteClick(seo.id)}
-                                                    className="text-red-500 hover:text-red-600 transition-colors" 
+                                                    className="text-red-500 hover:text-red-600 transition-colors cursor-pointer" 
                                                     title="Delete"
                                                 >
                                                     <Trash2 size={18} />
-                                                </button>
+                                                </a>
                                             </div>
                                         </td>
                                     </tr>
@@ -315,7 +315,7 @@ export const ManageSEO: React.FC = () => {
                                     onClick={() => goToPage(page)}
                                     className={`px-4 py-1.5 text-sm rounded font-medium shadow-sm ${
                                         currentPage === page
-                                        ? 'bg-[#b0cb1f] text-gray-900'
+                                        ? 'bg-[#e76f20]/90 text-gray-900'
                                         : 'bg-white dark:bg-secondary-900 border border-gray-200 dark:border-secondary-600 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-secondary-700'
                                     }`}
                                 >

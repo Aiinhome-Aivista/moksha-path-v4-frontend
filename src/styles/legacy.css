@@ -89,7 +89,9 @@ p {
   margin: 0 0 1em;
   color: #2e3350;
 }
-
+.main{
+  background: var(--cream);
+}
 .eyebrow {
   font-family: var(--ff-devanagari);
   font-size: 0.95rem;

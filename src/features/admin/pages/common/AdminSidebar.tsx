@@ -111,7 +111,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, toggleSideba
                     <>
                         <button
                             onClick={toggleSidebar}
-                            className="p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-gray-200 transition-colors"
+                            className="btn btn-ghost p-1  hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                         >
                             <X size={24} strokeWidth={2.5} />
                         </button>
@@ -122,7 +122,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, toggleSideba
                 ) : (
                     <button
                         onClick={toggleSidebar}
-                        className={`p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400 transition-colors ${!isOpen ? "fixed left-4 top-4 z-[60] md:static" : ""}`}
+                        className={`btn btn-ghost p-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors ${!isOpen ? "fixed left-4 top-4 z-[60] md:static" : ""}`}
                     >
                         <Menu size={24} />
                     </button>
@@ -201,9 +201,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, toggleSideba
             >
                 <button
                     onClick={handleLogoutClick}
-                    className={`
-                        flex items-center text-gray-600 dark:text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 rounded-xl transition-all duration-300
-                        ${isOpen ? "w-full px-4 py-3 gap-3" : "justify-center p-3"}
+                    className={`btn btn-ghost    ${isOpen ? "w-full px-4 py-3 gap-3" : "justify-center p-3"}
                     `}
                     style={{
                         transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
@@ -219,7 +217,6 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, toggleSideba
                             }}
                         >
                             <span className="text-[15px] font-medium">Safe Logout</span>
-                            <ChevronRight size={16} className="ml-auto text-gray-300" />
                         </div>
                     )}
                 </button>

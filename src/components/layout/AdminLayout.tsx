@@ -25,8 +25,8 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
       >
                 <Header variant="landing" />
         
-        <main className="flex-1 p-6">
-          <div className="max-w-7xl mx-auto w-full mt-4">
+        <main className="main flex-1 p-6">
+          <div className="max-w-7xl 2xl:max-w-[90rem] mx-auto w-full mt-4">
             {children}
           </div>
         </main>

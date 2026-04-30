@@ -166,7 +166,7 @@ export const ManageCategories: React.FC = () => {
       {/* Header Section */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-primary dark:text-white flex items-center gap-3">
+          <h1 className="text-2xl font-bold text-primary dark:text-secondary-300 flex items-center gap-3">
             <FolderTree className="text-[#b0cb1f]" />
             Manage Post Categories
           </h1>
@@ -176,7 +176,7 @@ export const ManageCategories: React.FC = () => {
         </div>
         <button
           onClick={handleOpenAddModal}
-          className="flex items-center gap-2 bg-[#b0cb1f] hover:bg-[#c5de3a] text-gray-900 px-5 py-2.5 rounded-xl font-semibold transition-colors shadow-md"
+          className="btn btn-primary text-gray-900 transition-colors"
         >
           <Plus size={18} />
           Add New Category
@@ -216,7 +216,7 @@ export const ManageCategories: React.FC = () => {
         <div className="overflow-x-auto">
           <table className="w-full text-sm text-left">
             {/* GREEN Table Header */}
-            <thead className="bg-[#b0cb1f] text-gray-900 font-semibold border-b border-gray-200 dark:border-secondary-700">
+            <thead className="bg-[#e76f20]/80 text-gray-900 font-semibold border-b border-gray-200 dark:border-secondary-700">
               <tr className="divide-x divide-gray-900/20">
                 <th className="px-6 py-4 text-center w-24">Sl. No.</th>
                 <th className="px-6 py-4 text-center">Category Name</th>
@@ -252,10 +252,10 @@ export const ManageCategories: React.FC = () => {
                       key={cat.id}
                       className="divide-x divide-gray-100 dark:divide-secondary-700 hover:bg-gray-50 dark:hover:bg-secondary-700/50 transition-colors"
                     >
-                      <td className="px-6 py-4 text-center text-primary dark:text-gray-300 align-middle">
+                      <td className="px-6 py-4 text-center text-primary dark:text-secondary-300 align-middle">
                         {startIndex + index + 1}
                       </td>
-                      <td className="px-6 py-4 text-center font-medium text-primary dark:text-gray-200 align-middle">
+                      <td className="px-6 py-4 text-center font-medium text-primary dark:text-secondary-200 align-middle">
                         {cat.category_name || cat.name}
                       </td>
                       <td className="px-6 py-4 text-center align-middle">

@@ -91,7 +91,7 @@ export const BlogDetail = () => {
       <div className="bg-white min-h-screen flex items-center justify-center">
         <div className="text-center">
           <Loader2
-            className="animate-spin text-[#FCEA0A] mb-4 mx-auto"
+            className="animate-spin text-[#f6b93b] mb-4 mx-auto"
             size={50}
           />
           <p className="text-gray-500 font-medium">

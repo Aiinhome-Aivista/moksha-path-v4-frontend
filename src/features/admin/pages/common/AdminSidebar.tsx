@@ -85,9 +85,9 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, toggleSideba
 
     return (
         <aside
-            onMouseLeave={() => {
-                if (isOpen) toggleSidebar();
-            }}
+            // onMouseLeave={() => {
+            //     if (isOpen) toggleSidebar();
+            // }}
             className={`
                 fixed top-0 left-0 h-full z-[100]
                 bg-white dark:bg-secondary-900

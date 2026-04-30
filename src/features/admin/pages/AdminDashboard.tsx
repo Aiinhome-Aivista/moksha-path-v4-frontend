@@ -101,11 +101,11 @@ const formatDate = (dateString: string | undefined | null): string => {
         <div className="space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div>
-                    <h1 className="text-2xl font-bold text-primary dark:text-white">
+                    <h1 className="text-2xl font-bold text-primary dark:text-secondary-300 flex items-center gap-2">
                         Admin Dashboard
                     </h1>
                     <p className="text-gray-600 dark:text-gray-400 mt-1">
-                        Welcome back, <span className="font-bold text-primary dark:text-white">{adminName}</span>.
+                        Welcome back, <span className="font-bold text-primary dark:text-secondary-300">{adminName}</span>.
                     </p>
                 </div>
             </div>
@@ -156,7 +156,7 @@ const formatDate = (dateString: string | undefined | null): string => {
                 ) : stats?.recent_blogs && stats.recent_blogs.length > 0 ? (
                     <div className="overflow-x-auto">
                         <table className="w-full text-sm text-left">
-                            <thead className="bg-[#b0cb1f] text-gray-900 font-semibold border-b border-gray-200 dark:border-secondary-700">
+                            <thead className="bg-[#e76f20]/80 text-gray-900 font-semibold border-b border-gray-200 dark:border-secondary-700">
                                 <tr>
                                     <th className="px-6 py-4">Title</th>
                                     <th className="px-6 py-4 text-center">Category</th>
@@ -166,7 +166,7 @@ const formatDate = (dateString: string | undefined | null): string => {
                             <tbody className="divide-y divide-gray-100 dark:divide-secondary-700">
                                 {stats.recent_blogs.map((blog: any, index: number) => (
                                     <tr key={index} className="hover:bg-gray-50 dark:hover:bg-secondary-700/50 transition-colors">
-                                        <td className="px-6 py-4 font-medium text-primary dark:text-white">{blog.blog_title || blog.title}</td>
+                                        <td className="px-6 py-4 font-medium text-primary dark:text-secondary">{blog.blog_title || blog.title}</td>
                                         <td className="px-6 py-4 text-center text-secondary-500 dark:text-secondary-400">{blog.category_name}</td>
                                         <td className="px-6 py-4 text-center text-secondary-500 dark:text-secondary-400">
                                             {formatDate(blog.created_at)}

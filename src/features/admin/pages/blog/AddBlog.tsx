@@ -151,7 +151,7 @@ export const AddBlog: React.FC = () => {
           <ArrowLeft size={20} />
         </NavLink>
         <div>
-          <h1 className="text-2xl font-bold text-primary dark:text-white">
+          <h1 className="text-2xl font-bold text-primary dark:text-secondary-300 flex items-center gap-3">
             {isEditMode ? "Edit Blog Article" : "Add New Blog Article"}
           </h1>
         </div>
@@ -337,7 +337,7 @@ export const AddBlog: React.FC = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="flex items-center gap-2 bg-[#b0cb1f] text-gray-900 px-8 py-3 rounded-xl font-bold shadow-lg hover:bg-[#c5de3a] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="btn btn-primary text-gray-900  transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 <>

@@ -124,7 +124,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, toggleSideba
                             <X size={24} strokeWidth={2.5} />
                         </button>
                         <div className="flex items-center gap-3">
-                            <img src="/Logo.svg" alt="App Logo" className="h-25 w-[80%]" />
+                            <img src="/assets/logogod.svg" alt="App Logo" className="h-25 w-[80%]" />
                         </div>
                     </>
                 ) : (

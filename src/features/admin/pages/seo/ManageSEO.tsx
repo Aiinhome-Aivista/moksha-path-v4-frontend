@@ -148,7 +148,7 @@ export const ManageSEO: React.FC = () => {
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div>
                     <h1 className="text-2xl font-bold text-primary dark:text-secondary-300 flex items-center gap-3">
-                        <Search className="text-[#b0cb1f]" />
+                        <Search className="text-[#e76f20]" />
                         Manage SEO
                     </h1>
                     <p className="text-secondary-500 dark:text-secondary-400 mt-1">

@@ -10,6 +10,7 @@ import {
     ChevronRight,
     BookOpen
 } from "lucide-react";
+import ConfirmModal from "@/components/common/ConfirmModal";
 
 interface AdminSidebarProps {
     isOpen: boolean;
@@ -27,6 +28,7 @@ const getIconForPage = (pageName: string) => {
 
 export const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, toggleSidebar }) => {
     const [menuItems, setMenuItems] = React.useState<any[]>([]);
+    const [showLogoutModal, setShowLogoutModal] = React.useState(false);
 
     React.useEffect(() => {
         const storedUser = localStorage.getItem("admin_user");
@@ -76,11 +78,15 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, toggleSideba
         }
     }, []);
 
-    const handleLogout = () => {
+    const handleLogoutClick = () => {
+        setShowLogoutModal(true);
+    };
+
+    const confirmLogout = () => {
         // Clear all session/auth tokens related to admin manually
         localStorage.removeItem("admin_user");
         // Force redirect to login which clears state completely
-        window.location.href = "/admin/login";
+        window.location.href = "/";
     };
 
     return (
@@ -200,7 +206,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, toggleSideba
                 }}
             >
                 <button
-                    onClick={handleLogout}
+                    onClick={handleLogoutClick}
                     className={`
                         flex items-center text-gray-600 dark:text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 rounded-xl transition-all duration-300
                         ${isOpen ? "w-full px-4 py-3 gap-3" : "justify-center p-3"}
@@ -224,6 +230,17 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, toggleSideba
                     )}
                 </button>
             </div>
+
+            {/* Logout Confirmation Modal using the separated file and home page theme */}
+            <ConfirmModal 
+                isOpen={showLogoutModal}
+                title="Ready to leave?"
+                message="Are you sure you want to log out of your admin session? You will need to sign in again to access the dashboard."
+                confirmText="Logout"
+                cancelText="Cancel"
+                onConfirm={confirmLogout}
+                onCancel={() => setShowLogoutModal(false)}
+            />
         </aside>
     );
 };

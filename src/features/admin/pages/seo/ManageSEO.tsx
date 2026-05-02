@@ -157,7 +157,7 @@ export const ManageSEO: React.FC = () => {
                 </div>
                 <NavLink
                     to="/admin/add-seo"
-                    className="btn btn-primary text-gray-900 transition-colors"
+                    className="btn btn-primary text-gray-900 transition-colors opacity-75 hover:opacity-95"
                 >
                     <ListPlus size={18} />
                     Add New SEO
@@ -165,16 +165,16 @@ export const ManageSEO: React.FC = () => {
             </div>
 
             {/* Table Card Container */}
-            <div className="bg-white dark:bg-secondary-800 rounded-md shadow-sm border border-secondary-200 dark:border-secondary-700 overflow-hidden">
+            <div className="w-full rounded-md shadow-sm border border-secondary-200 dark:border-secondary-700 overflow-hidden">
                 
                 {/* Search Bar Top Bar */}
-                <div className="p-4 border-b border-secondary-200 dark:border-secondary-700 bg-white dark:bg-secondary-800/50 flex items-center justify-between gap-4">
+                <div className="p-4 border-b border-secondary-200 dark:border-secondary-700 flex items-center justify-between gap-4">
                     <div className="relative max-w-md flex items-center w-full">
                         <Search className="absolute left-3 text-gray-400" size={18} />
                         <input
                             type="text"
                             placeholder="Search anything..."
-                            className="pl-10 pr-4 py-2 border rounded-md w-full text-primary dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#e76f20]/50 transition-shadow text-black disabled:opacity-70 disabled:cursor-not-allowed"
+                            className="pl-10 pr-4 py-2 border rounded-md w-full text-primary dark:text-secondary-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#e76f20]/50 transition-shadow text-black disabled:opacity-70 disabled:cursor-not-allowed"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             disabled={isTableLoading || isRefreshing}
@@ -297,7 +297,7 @@ export const ManageSEO: React.FC = () => {
 
                 {/* Pagination Footer */}
                 {!isTableLoading && !isRefreshing && totalPages > 1 && (
-                    <div className="p-4 border-t border-secondary-200 dark:border-secondary-700 bg-white dark:bg-secondary-800 flex justify-between items-center">
+                    <div className="p-4 border-t border-secondary-200 dark:border-secondary-700 flex justify-between items-center">
                         <span className="text-sm text-gray-500 dark:text-gray-400">
                             Showing {startIndex + 1} to {Math.min(startIndex + ITEMS_PER_PAGE, totalItems)} of {totalItems} entries
                         </span>

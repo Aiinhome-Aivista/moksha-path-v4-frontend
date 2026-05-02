@@ -124,7 +124,7 @@ const formatDate = (dateString: string | undefined | null): string => {
                     ))
                 ) : (
                     dashboardStats.map((stat, index) => (
-                        <div key={index} className="bg-white dark:bg-secondary-800 rounded-2xl p-6 shadow-sm border border-secondary-200 dark:border-secondary-700 flex items-center gap-4 hover:shadow-md transition-shadow">
+                        <div key={index} className="rounded-2xl p-6 shadow-sm border border-secondary-200 dark:border-secondary-700 flex items-center gap-4 hover:shadow-md transition-shadow">
                             <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-white ${stat.color} shrink-0 shadow-md`}>
                                 {stat.icon}
                             </div>
@@ -132,7 +132,7 @@ const formatDate = (dateString: string | undefined | null): string => {
                                 <p className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-1">
                                     {stat.label}
                                 </p>
-                                <h3 className="text-2xl font-black text-primary dark:text-white leading-none">
+                                <h3 className="text-2xl font-black text-primary dark:text-secondary-300 leading-none">
                                     {stat.value}
                                 </h3>
                             </div>
@@ -141,9 +141,9 @@ const formatDate = (dateString: string | undefined | null): string => {
                 )}
             </div>
 
-            <div className="bg-white dark:bg-secondary-800 rounded-2xl p-6 shadow-sm border border-secondary-200 dark:border-secondary-700">
+            <div className="rounded-2xl p-6 shadow-sm border border-secondary-200 dark:border-secondary-700">
                 <div className="flex items-center justify-between mb-6">
-                    <h2 className="text-xl font-bold text-primary dark:text-white flex items-center gap-2">
+                    <h2 className="text-xl font-bold text-primary dark:text-secondary-300 flex items-center gap-2">
                         <FileText className="text-[#f6b93b]" size={20} />
                         Recent Blog Posts
                     </h2>

@@ -337,7 +337,7 @@ export const AddBlog: React.FC = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="btn btn-primary text-gray-900  transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="btn btn-primary text-gray-900 transition-colors disabled:opacity-50 disabled:cursor-not-allowed opacity-75 hover:opacity-95"
             >
               {isSubmitting ? (
                 <>

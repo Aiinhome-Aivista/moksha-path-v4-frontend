@@ -200,9 +200,9 @@ const AdminLogin: React.FC = () => {
                       required
                     />
                   </div>
-                  <div className="bg-gray-200 dark:bg-secondary-700 rounded-lg p-2 h-[50px] flex items-center justify-center select-none">
+                  <div className="bg-gray-200 rounded-lg p-2 h-[50px] flex items-center justify-center select-none">
                     <span
-                      className="text-2xl font-bold tracking-[.2em] text-gray-700 dark:text-gray-300"
+                      className="text-2xl font-bold tracking-[.2em] text-primary-700"
                       style={{ fontFamily: "monospace" }}
                     >
                       {captchaCode}
@@ -211,7 +211,7 @@ const AdminLogin: React.FC = () => {
                   <button
                     type="button"
                     onClick={handleResetCaptcha}
-                    className="p-2 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-secondary-800 rounded-full transition-colors"
+                    className="btn btn-ghost p-2   transition-colors"
                     title="Reset Captcha"
                   >
                     <RefreshCw size={20} />

@@ -232,7 +232,7 @@ export const AddSEO: React.FC = () => {
                         <button 
                             type="submit" 
                             disabled={isSubmitting}
-                            className="flex items-center gap-2 bg-[#b0cb1f] text-gray-900 px-8 py-3 rounded-xl font-bold shadow-lg hover:bg-[#c5de3a] transition-all active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed"
+                            className="btn btn-primary text-gray-900 disabled:opacity-70 opacity-75 hover:opacity-95 disabled:cursor-not-allowed"
                         >
                             {isSubmitting ? <Loader2 className="animate-spin" size={18} /> : <Save size={18} />}
                             {isEditMode ? 'Update SEO Info' : 'Save SEO Info'}

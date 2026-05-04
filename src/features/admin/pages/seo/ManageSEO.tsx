@@ -246,14 +246,19 @@ export const ManageSEO: React.FC = () => {
                                         <td className="px-6 py-4 text-center font-medium text-primary dark:text-secondary-200 min-w-[200px] align-middle">
                                             {seo.seo_title || seo.title}
                                         </td>
-                                        <td className="px-6 py-4 text-center text-primary dark:text-secondary-400 min-w-[200px] align-middle">
-                                            {seo.seo_description || seo.description}
+                                        <td
+                                            className="px-6 py-4 text-center text-primary dark:text-secondary-400 min-w-[200px] max-w-xs align-middle cursor-help"
+                                            title={seo.seo_description || seo.description}
+                                        >
+                                            <div className="line-clamp-1">
+                                                {seo.seo_description || seo.description}
+                                            </div>
                                         </td>
                                         <td 
                                             className="px-6 py-4 text-center text-primary dark:text-secondary-300 min-w-[200px] max-w-xs align-middle cursor-help"
                                             title={seo.seo_keywords || seo.keywords}
                                         >
-                                            <div className="line-clamp-2 leading-relaxed">
+                                            <div className="line-clamp-1 leading-relaxed">
                                                 {seo.seo_keywords || seo.keywords}
                                             </div>
                                         </td>

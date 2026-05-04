@@ -192,7 +192,7 @@ export const ManageCategories: React.FC = () => {
             <input
               type="text"
               placeholder="Search category..."
-              className="pl-10 pr-4 py-2 border rounded-md w-full bg-white dark:bg-secondary-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#e76f20]/50 transition-shadow text-primary dark:text-secondary-300 disabled:opacity-70 disabled:cursor-not-allowed"
+              className="pl-10 pr-4 py-2 border rounded-md w-full text-sm focus:outline-none focus:ring-2 focus:ring-[#e76f20]/50 transition-shadow text-primary bg-[#faf6ec] dark:text-secondary-300 disabled:opacity-70 disabled:cursor-not-allowed"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               disabled={isTableLoading || isRefreshing}
@@ -318,7 +318,7 @@ export const ManageCategories: React.FC = () => {
               <button
                 onClick={() => goToPage(currentPage - 1)}
                 disabled={currentPage === 1}
-                className="px-4 py-1.5 text-sm border border-gray-200 dark:border-secondary-600 rounded bg-white dark:bg-secondary-900 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-secondary-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-4 py-1.5 text-sm border border-gray-200 dark:border-secondary-600 rounded bg-white/40 hover:bg-[#f3ecd9] text-secondary disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Prev
               </button>
@@ -330,7 +330,7 @@ export const ManageCategories: React.FC = () => {
                     className={`px-4 py-1.5 text-sm rounded font-medium shadow-sm ${
                       currentPage === page
                         ? "bg-[#e76f20]/90 text-gray-900"
-                        : "bg-white dark:bg-secondary-900 border border-gray-200 dark:border-secondary-600 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-secondary-700"
+                        : "bg-white/40 border border-secondary-600 text-gray-600 hover:bg-[#f3ecd9]"
                     }`}
                   >
                     {page}
@@ -340,7 +340,7 @@ export const ManageCategories: React.FC = () => {
               <button
                 onClick={() => goToPage(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                className="px-4 py-1.5 text-sm border border-gray-200 dark:border-secondary-600 rounded bg-white dark:bg-secondary-900 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-secondary-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-4 py-1.5 text-sm border border-gray-200 dark:border-secondary-600 rounded bg-white/40 hover:bg-[#f3ecd9] text-secondary disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Next
               </button>

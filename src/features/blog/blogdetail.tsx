@@ -104,7 +104,7 @@ export const BlogDetail = () => {
 
   if (!blog) {
     return (
-      <div className="bg-white font-sans min-h-screen pb-12 w-full">
+      <div className="font-sans min-h-screen pb-12 w-full">
         <div className="max-w-[1400px] mx-auto px-4 py-20 md:px-8 text-center">
           <h1 className="text-3xl font-bold mb-4">Blog Post Not Found</h1>
           <p className="text-gray-600 mb-8">
@@ -125,11 +125,11 @@ export const BlogDetail = () => {
   const imageBaseUrl = `${import.meta.env.VITE_API_BASE_URL}blogs/get-image/`;
 
   return (
-    <div className="bg-white font-sans min-h-screen pb-12 w-full">
+    <div className="font-sans min-h-screen pb-12 w-full">
       <div className="max-w-[1400px] mx-auto px-4 py-8 md:px-8">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* LEFT COLUMN: Main Article Content */}
-          <div className="w-full lg:w-[65%] xl:w-[70%] border border-gray-100 shadow-sm rounded-lg overflow-hidden bg-white">
+          <div className="w-full lg:w-[65%] xl:w-[70%] border border-gray-100 shadow-sm rounded-lg overflow-hidden">
             {/* Hero Image */}
             <div className="w-full h-[300px] md:h-[450px] bg-gray-100">
               <img

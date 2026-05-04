@@ -73,7 +73,7 @@ export const BlogPage = () => {
               {currentPosts.map((post) => (
                 <div
                   key={post.id}
-                  className="bg-white rounded-md shadow-sm border border-gray-100 overflow-hidden flex flex-col transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                  className="rounded-md shadow-sm border border-gray-100 overflow-hidden flex flex-col transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
                 >
                   {/* Card Image */}
                   <div className="h-52 bg-gray-200 overflow-hidden p-3 rounded-t-md">
@@ -149,7 +149,7 @@ export const BlogPage = () => {
             <button
               onClick={goToFirstPage}
               disabled={currentPage === 1}
-              className="px-3 md:px-4 py-2 border border-gray-200 bg-white text-gray-600 rounded hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="px-3 md:px-4 py-2 border border-gray-200 text-gray-600 rounded hover:bg-[#f3ecd9] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               First
             </button>
@@ -157,7 +157,7 @@ export const BlogPage = () => {
             <button
               onClick={goToPrevPage}
               disabled={currentPage === 1}
-              className="px-3 md:px-4 py-2 border border-gray-200 bg-white text-gray-600 rounded hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="px-3 md:px-4 py-2 border border-gray-200 text-gray-600 rounded hover:bg-[#f3ecd9] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               Previous
             </button>

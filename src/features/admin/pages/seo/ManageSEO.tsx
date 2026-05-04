@@ -174,7 +174,7 @@ export const ManageSEO: React.FC = () => {
                         <input
                             type="text"
                             placeholder="Search anything..."
-                            className="pl-10 pr-4 py-2 border rounded-md w-full text-primary dark:text-secondary-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#e76f20]/50 transition-shadow text-black disabled:opacity-70 disabled:cursor-not-allowed"
+                            className="pl-10 pr-4 py-2 border rounded-md w-full text-primary dark:text-secondary-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#e76f20]/50 transition-shadow text-black bg-[#faf6ec] disabled:opacity-70 disabled:cursor-not-allowed"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             disabled={isTableLoading || isRefreshing}
@@ -249,8 +249,13 @@ export const ManageSEO: React.FC = () => {
                                         <td className="px-6 py-4 text-center text-primary dark:text-secondary-400 min-w-[200px] align-middle">
                                             {seo.seo_description || seo.description}
                                         </td>
-                                        <td className="px-6 py-4 text-center text-primary dark:text-secondary-300 min-w-[200px] leading-relaxed align-middle">
-                                            {seo.seo_keywords || seo.keywords}
+                                        <td 
+                                            className="px-6 py-4 text-center text-primary dark:text-secondary-300 min-w-[200px] max-w-xs align-middle cursor-help"
+                                            title={seo.seo_keywords || seo.keywords}
+                                        >
+                                            <div className="line-clamp-2 leading-relaxed">
+                                                {seo.seo_keywords || seo.keywords}
+                                            </div>
                                         </td>
                                         <td className="px-6 py-4 text-center text-sky-500 dark:text-sky-400 min-w-[200px] text-xs align-middle break-all">
                                             {seo.canonical_url}
@@ -305,7 +310,7 @@ export const ManageSEO: React.FC = () => {
                             <button
                                 onClick={() => goToPage(currentPage - 1)}
                                 disabled={currentPage === 1}
-                                className="px-4 py-1.5 text-sm border border-gray-200 dark:border-secondary-600 rounded bg-white dark:bg-secondary-900 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-secondary-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="px-4 py-1.5 text-sm border border-gray-200 dark:border-secondary-600 rounded bg-white/40 hover:bg-[#f3ecd9] text-secondary disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                                 Prev
                             </button>
@@ -316,7 +321,7 @@ export const ManageSEO: React.FC = () => {
                                     className={`px-4 py-1.5 text-sm rounded font-medium shadow-sm ${
                                         currentPage === page
                                         ? 'bg-[#e76f20]/90 text-gray-900'
-                                        : 'bg-white dark:bg-secondary-900 border border-gray-200 dark:border-secondary-600 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-secondary-700'
+                                        : 'bg-white/40 border border-secondary-600 text-gray-600 hover:bg-[#f3ecd9]'
                                     }`}
                                 >
                                     {page}
@@ -325,7 +330,7 @@ export const ManageSEO: React.FC = () => {
                             <button
                                 onClick={() => goToPage(currentPage + 1)}
                                 disabled={currentPage === totalPages}
-                                className="px-4 py-1.5 text-sm border border-gray-200 dark:border-secondary-600 rounded bg-white dark:bg-secondary-900 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-secondary-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="px-4 py-1.5 text-sm border border-gray-200 dark:border-secondary-600 rounded bg-white/40 hover:bg-[#f3ecd9] text-secondary disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                                 Next
                             </button>

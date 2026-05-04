@@ -88,7 +88,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, toggleSideba
         <aside
             className={`
                 fixed top-0 left-0 h-full z-[100]
-                bg-[#f3ecd9] dark:bg-secondary-900
+                bg-[#f3ecd9]/60 dark:bg-secondary-900
                 shadow-xl transition-all duration-500 ease-in-out
                 flex flex-col rounded-r-[30px]
                 ${isOpen ? "w-64" : "w-0 md:w-[88px]"}
